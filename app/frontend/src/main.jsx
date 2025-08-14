@@ -4,16 +4,13 @@ import './main.css'
 import { HashRouter, useRoutes } from 'react-router-dom'
 import routes from 'virtual:generated-pages-react'
 
-
+// Tauri imports
 import { invoke } from "@tauri-apps/api/core";
+import { listen } from "@tauri-apps/api/event";
 
-
-async function run() {
-  const result = await invoke("run_subprocess");
-  console.log(result); // "Hello from subprocess!"
-}
-
-run();
+await listen('hardware_event', (event) => {
+  console.log("Hardware event received:", event.payload);
+});
 
 function App() {
   return useRoutes(routes)
