@@ -10,7 +10,7 @@ const Apps = () => {
           <Navbar page="apps" />
         </div>
 
-        <div className='w-[85%] py-4 pr-2 h-full '><div className='bg-gray-200 rounded items-center justify-center flex w-full h-full'>
+        <div className='w-[85%] py-4 pr-2 h-full '><div className='bg-gray-50 shadow border border-gray-200 rounded-sm items-center justify-center flex w-full h-full'>
 
           <h1 className="text-3xl font-bold underline">
             Apps

@@ -1,9 +1,12 @@
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 
 mod events;
+mod commands;
 
 pub fn run() {
   tauri::Builder::default()
+
+    .invoke_handler(tauri::generate_handler![commands::hardware_commands::get_hardware_static_info])
 
     .setup(|app| {
       if cfg!(debug_assertions) {
@@ -14,8 +17,10 @@ pub fn run() {
         )?;
 
       }
-      // Starts hardware events        
+
+      // Starts hardware events
       events::hardware_events::hardware_json_emitter(app.handle().clone());
+      
 
       Ok(())
     })

@@ -16,7 +16,7 @@ const Navbar = (props) => {
 
   return (
     <div className='py-4 px-2 h-full'>
-      <nav className='bg-gray-200 rounded h-full py-2'>
+      <nav className='bg-gray-50 shadow border border-gray-200 rounded-sm h-full py-2'>
         <div className='flex justify-center p-2 mb-2'>
           <img src="/oversees_cyan.png" alt="" className='w-4 h-4 mr-1'/>
           <p className='text-xs font-segoe text-cyan-600'>oversees</p>
@@ -27,8 +27,8 @@ const Navbar = (props) => {
           {navItems.map(item => (
             <li
               key={item.key}
-              className={`py-2 px-4 my-1.5 mx-2 rounded-lg ${
-                page === item.key ? 'bg-gray-200' : 'bg-gray-300'
+              className={`py-2 px-4 my-1.5 mx-2 rounded bg-gray-50  ${
+                page === item.key ? '' : 'shadow-sm border border-gray-200'
               }`}
             >
               <Link to={item.to}>
